@@ -64,7 +64,7 @@ RUN adduser userbot wheel
 USER userbot
 RUN mkdir /home/userbot/userbot
 RUN mkdir /home/userbot/bin
-RUN git clone https://github.com/AvinashReddy3108/PaperplaneExtended /home/userbot/userbot
+RUN git clone https://github.com/Giovix92/PaperplaneExtended /home/userbot/userbot
 WORKDIR /home/userbot/userbot
 ADD ./requirements.txt /home/userbot/userbot/requirements.txt
 

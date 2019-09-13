@@ -40,7 +40,7 @@ async def upstream(ups):
     if not ups.text[0].isalpha() and ups.text[0] not in ("/", "#", "@", "!"):
         await ups.edit("`Checking for updates, please wait....`")
         conf = ups.pattern_match.group(1)
-        off_repo = 'https://github.com/AvinashReddy3108/PaperplaneExtended.git'
+        off_repo = 'https://github.com/Giovix92/PaperplaneExtended.git'
 
         try:
             txt = "`Oops.. Updater cannot continue due to some problems occured`\n\n**LOGTRACE:**\n"

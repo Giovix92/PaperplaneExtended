@@ -931,7 +931,7 @@ async def react_meme(react):
 @register(outgoing=True, pattern="^.shg$")
 @errors_handler
 async def shrugger(shg):
-    r""" ¯\_(ツ)_/¯ """
+    """ ¯\_(ツ)_/¯ """
     if not shg.text[0].isalpha() and shg.text[0] not in ("/", "#", "@", "!"):
         await shg.edit(random.choice(SHGS))
 

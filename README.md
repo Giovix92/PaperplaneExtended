@@ -4,7 +4,7 @@
 
 #### The easiest way to deploy this bad boy !!
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/AvinashReddy3108/PaperplaneExtended/tree/sql-extended)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Giovix92/PaperplaneExtended/tree/sql-extended)
 
     #include <std/disclaimer.h>
     /**
@@ -25,7 +25,7 @@
         I will be rolling on the floor laughing at you.
     /**
 
-This is a fork of the famous [Paperplane](https://github.com/RaphielGang/Telegram-UserBot) userbot made by the awesome [RaphielGang](https://github.com/RaphielGang) team with some extras from the Telegram userbot community.
+This is a fork of [Paperplane Extended](https://github.com/AvinashReddy3108/PaperplaneExtended), which is a fork of the famous [Paperplane](https://github.com/RaphielGang/Telegram-UserBot) userbot made by the awesome [RaphielGang](https://github.com/RaphielGang) team with some extras from the Telegram userbot community.
 
 For setting up and configuring this userbot, you can checkout the [Wiki](https://telegra.ph/How-to-host-a-Telegram-Userbot-07-24)
 

@@ -26,7 +26,7 @@ except PhoneNumberInvalidError:
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
 
-LOGS.info("Your userbot version is 4.0 - Extended")
+LOGS.info("Your userbot version is 4.0 - ITA Extended")
 
 LOGS.info(
     "Congratulations, your userbot is now running !! Test it by typing .alive in any chat."
