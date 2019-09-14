@@ -18,8 +18,6 @@ import requests
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
 
-from cowpy import cow
-
 from userbot import CMD_HELP
 from userbot.events import register, errors_handler
 
@@ -29,6 +27,33 @@ BESTEMMIE = [
     "Porco dio",
     "Puttana la madonna",
     "Gesu' btrfs",
+    "madonna maiala",
+    "dio cane",
+    "madonna zoccola",
+    "gesu' scemo",
+    "giuseppe bastardo",
+    "madonna pompinara",
+    "madonna murata",
+    "dio obeso",
+    "cristo slabbrato",
+    "dio zoppo",
+    "dio ladro",
+    "dio cristo",
+    "gesucchia",
+    "madonna troia",
+    "gesu' bestia",
+    "gesu' script",
+    "dio programmatore",
+    "madonna tester",
+    "gesu' tastiera",
+    "dio merda",
+    "dio canaglia",
+    "cristo gamer",
+    "giuseppe cornuto",
+    "Dio giasen",
+    "Dio mido",
+    "Madonna tissot",
+    "Dio giovix",
 ]
 
 FRASI = [
