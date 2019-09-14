@@ -65,6 +65,8 @@ FRASI = [
     "130 SI VOLAAAA",
     "Eh, volevi!",
     "Io sono giapponese",
+    "Sono Enrico Pasquale Pratticò",
+    "OSANNA AL CRISTO SIGNOR",
 ]
 
 # ===========================================
