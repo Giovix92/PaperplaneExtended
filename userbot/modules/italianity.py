@@ -54,6 +54,20 @@ BESTEMMIE = [
     "Dio mido",
     "Madonna tissot",
     "Dio giovix",
+    "Dio mattone",
+    "Dio muro",
+    "Dio scrivania di linux",
+    "Dio mojave",
+    "Dio volte",
+    "Dio kernel",
+    "Dio acciuga volante",
+    "Nculaddio",
+    "gesù cristo dinosauro cavalcato da un australopiteco",
+    "dio cantante neomelodico napoletano",
+    "dio pinza da debug",
+    "dio philadelphia alla merda",
+    "dio christmas bullet",
+    "dio nastro isolante",
 ]
 
 FRASI = [
