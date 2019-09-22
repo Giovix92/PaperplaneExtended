@@ -12,6 +12,7 @@ from logging import basicConfig, getLogger, INFO, DEBUG
 from distutils.util import strtobool as sb
 
 import pylast
+from pySmartDL import SmartDL
 from dotenv import load_dotenv
 from requests import get
 from telethon import TelegramClient
@@ -33,7 +34,7 @@ else:
 LOGS = getLogger(__name__)
 
 if version_info[0] < 3 or version_info[1] < 6:
-    LOGS.error("You MUST have a python version of at least 3.6."
+    LOGS.info("You MUST have a python version of at least 3.6."
                "Multiple features depend on this. Bot quitting.")
     quit(1)
 
@@ -43,7 +44,7 @@ CONFIG_CHECK = os.environ.get(
     "___________PLOX_______REMOVE_____THIS_____LINE__________", None)
 
 if CONFIG_CHECK:
-    LOGS.error(
+    LOGS.info(
         "Please remove the line mentioned in the first hashtag from the config.env file"
     )
     quit(1)
@@ -56,8 +57,9 @@ API_HASH = os.environ.get("API_HASH", None)
 STRING_SESSION = os.environ.get("STRING_SESSION", None)
 
 # Logging channel/group configuration.
-BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", "0"))
+BOTLOG_CHATID = int(os.environ.get("BOTLOG_CHATID", None))
 
+# Userbot logging feature switch.
 BOTLOG = sb(os.environ.get("BOTLOG", "False"))
 
 # Bleep Blop, this is a bot ;)
@@ -126,6 +128,23 @@ GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
 TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
                                          "./downloads")
 
+# Setting Up CloudMail.ru and MEGA.nz extractor binaries,
+# and giving them correct perms to work properly.
+if not os.path.exists('bin'):
+    os.mkdir('bin')
+
+binaries = {
+    "https://raw.githubusercontent.com/yshalsager/megadown/master/megadown":
+    "bin/megadown",
+    "https://raw.githubusercontent.com/yshalsager/cmrudl.py/master/cmrudl.py":
+    "bin/cmrudl"
+}
+
+for binary, path in binaries.items():
+    downloader = SmartDL(binary, path, progress_bar=False)
+    downloader.start()
+    os.chmod(path, 0o755)
+
 # 'bot' variable
 if STRING_SESSION:
     # pylint: disable=invalid-name
@@ -134,12 +153,35 @@ else:
     # pylint: disable=invalid-name
     bot = TelegramClient("userbot", API_KEY, API_HASH)
 
+
+async def check_botlog_chatid():
+    if not BOTLOG_CHATID:
+        LOGS.info(
+            "You must set up the BOTLOG_CHATID variable in the config.env or environment variables, "
+            "many critical features depend on it. KTHXBye.")
+        quit(1)
+
+    entity = await bot.get_entity(BOTLOG_CHATID)
+    if entity.default_banned_rights.send_messages:
+        LOGS.info(
+            "Your account doesn't have rights to send messages to BOTLOG_CHATID "
+            "group. Check if you typed the Chat ID correctly.")
+        quit(1)
+
+with bot:
+    try:
+        bot.loop.run_until_complete(check_botlog_chatid())
+    except:
+        LOGS.info(
+            "BOTLOG_CHATID environment variable isn't a "
+            "valid entity. Check your environment variables/config.env file.")
+        quit(1)
+
 # Global Variables
 COUNT_MSG = 0
 USERS = {}
 COUNT_PM = {}
 LASTMSG = {}
-ENABLE_KILLME = True
 CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
